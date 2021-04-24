@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import encrypts from './helpers/Encrypts';
 
 function App() {
+  const [text, setText] = useState("");
+  const [encryptedText, setEncryptedText] = useState("")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='input_box'>
+      <input className='input_text' type='text' placeholder='Type text' onChange={(e) => setText(e.target.value)} />
+      <button className='encrypt_button' onClick={() => encrypts(text, setEncryptedText)}>Caesar Cipher</button>
+      <div className='encrypted_text'>{encryptedText}</div>
     </div>
   );
 }
