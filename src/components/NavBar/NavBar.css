@@ -1,0 +1,26 @@
+.nab_bar {
+    width: 100%;
+    background-color: #3a3a3a;
+    box-shadow: 0px 6px 11px 8px rgba(0,0,0,0.55);
+}
+
+.nav_ul {
+    display: flex;
+    color: white;
+    padding: 12px;
+    list-style: none;
+}
+
+.nav_item_li {
+    margin-left: 24px;
+    cursor: pointer;
+    transition: all 0.4s;
+    padding: 12px;
+    border-radius: 100px;
+    width: 140px;
+    text-align: center;
+}
+
+.nav_selected_item {
+    background-color: #016666;
+}

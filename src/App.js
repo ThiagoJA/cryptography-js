@@ -1,16 +1,22 @@
 import { useState } from 'react';
 import './App.css';
-import encrypts from './helpers/Encrypts';
+import CaesarCipher from './components/CaesarCipher/CaesarCipher';
+import NavBar from './components/NavBar/NavBar';
+import PlayfairCipher from './components/PlayfairCipher/PlayfairCipher';
+import VigenereCipher from './components/VigenereCipher/VigenereCipher';
 
 function App() {
-  const [text, setText] = useState("");
-  const [encryptedText, setEncryptedText] = useState("")
+  const [tab, setTab] = useState(0);
+  const components = [
+    <CaesarCipher />,
+    <VigenereCipher />,
+    <PlayfairCipher />,
+  ]
   return (
-    <div className='input_box'>
-      <input className='input_text' type='text' placeholder='Type text' onChange={(e) => setText(e.target.value)} />
-      <button className='encrypt_button' onClick={() => encrypts(text, setEncryptedText)}>Caesar Cipher</button>
-      <div className='encrypted_text'>{encryptedText}</div>
-    </div>
+    <>
+      <NavBar setTab={setTab} tab={tab} />
+      {components[tab]}
+    </>
   );
 }
 
